@@ -1,0 +1,18 @@
+body {
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	margin: 0 auto;
+	width: 75%;
+}
+
+.title {
+font-family: 'VT323', monospace;
+letter-spacing: 2px;
+padding: 10px 5px;
+border-top: 3px solid black;
+border-bottom: 3px solid black;
+border-left: 4px dashed black;
+border-right: 4px dashed black;
+width: 50%;
+margin: 25px auto 0 auto;
+}
