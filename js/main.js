@@ -24,22 +24,41 @@ var cards = [{
 
 // set variable to hold 'flipped' cards to later reference for matches
 var cardsInPlay = [];
-
+// changes flipped cards' class to clicked to flip back over when there are two of them.
+var clicked = document.getElementsByClassName("clicked");
+// initialize score at start
+var score = 0
+//allows for changing the message displayed if successful match 
+var scoreMessage = document.getElementById("scoreMessage"); 
+//allows for changing the message displayed if unsuccessful match 
+var failMessage = document.getElementById("failMessage"); 
+// flips back cards after selecting 2
+var flipBack = function() {
+	for (var i = 0; i < clicked.length; i++) {
+		clicked[i].setAttribute("src", "images/back.png");
+	}
+}
 
 // function to check card index from cardsInPlay for match.
 var checkForMatch = function() {
     if (cardsInPlay[0] === cardsInPlay[1]) {
-        console.log("You found a match!");
+        scoreMessage.innerHTML = "You found a match!";
+        score += 1;
+        document.getElementById("score").textContent = "Score: " + score;
+
+        flipBack();
     } else {
-        console.log("Sorry, try again");
+        failMessage.innerHTML = "Sorry, try again";
+        flipBack();
     }
+    cardsInPlay = [];
 }
 
 // function to execute when clicking on card IMG from the created board
 var flipCard = function() {
     var cardId = this.getAttribute("data-id");
-    // console.log("User flipped " + cards[cardId].rank);
     cardsInPlay.push(cards[cardId].rank);
+    this.setAttribute("class", "clicked");
     this.setAttribute("src", cards[cardId].cardImage);
     if (cardsInPlay.length === 2) {
     	checkForMatch();

@@ -109,6 +109,22 @@ footer {
 	color: #0D2C40;
 }
 
+#scoreMessage {
+	background-color:rgba(255,255,0,.6);
+	text-align: center;
+	border-radius: 3px;
+	margin: 0 auto;
+	width: 33%;
+}
+
+#failMessage {
+	background-color:rgba(255,0,0,.6);
+	text-align: center;
+	border-radius: 3px;
+	margin: 0 auto;
+	width: 33%;
+}
+
 .copyright {
 	float: left;
 }
